@@ -276,9 +276,9 @@ const otherFeatures = [
 
 const Features: React.FC = () => {
   return (
-    <div className="pt-16">
+    <div className="pt-20 md:pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 py-20 sm:py-24">
+      <section className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent mb-6">
             An End-to-End Logistics Platform

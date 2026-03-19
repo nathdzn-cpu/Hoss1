@@ -142,9 +142,9 @@ const OurSolution: React.FC = () => {
   ];
 
   return (
-    <div className="pt-16">
+    <div className="pt-20 md:pt-16">
       {/* Hero Section */}
-      <section className="relative bg-white dark:bg-gray-900 py-24 sm:py-32 overflow-hidden">
+      <section className="relative bg-white dark:bg-gray-900 py-20 sm:py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-50"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3 bg-gradient-to-tr from-amber-500/20 to-orange-500/20 dark:from-amber-500/10 dark:to-orange-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

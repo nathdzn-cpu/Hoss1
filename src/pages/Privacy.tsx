@@ -62,9 +62,9 @@ const Privacy: React.FC = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-20 md:pt-16">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-24 lg:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-20 sm:py-24 lg:py-32 overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
