@@ -352,15 +352,7 @@ const Privacy: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer Note */}
-      <section className="py-8 bg-gray-100 dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-500 dark:text-gray-400 text-sm">
-            © 2026 HOSS - Haulage One Stop Solutions Ltd. All rights reserved.
-          </p>
-        </div>
-      </section>
-    </div>
+      </div>
   );
 };
 
