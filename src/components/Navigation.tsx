@@ -15,6 +15,7 @@ const Navigation: React.FC = () => {
     { to: '/pricing', label: 'Pricing' },
     { to: '/demo', label: 'Demo' },
     { to: '/contact', label: 'Contact' },
+    { to: '/privacy', label: 'Privacy' },
   ];
 
   // Close popovers on outside click

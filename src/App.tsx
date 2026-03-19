@@ -8,6 +8,7 @@ import Pricing from './pages/Pricing';
 import Demo from './pages/Demo';
 import Contact from './pages/Contact';
 import OurSolution from './pages/OurSolution';
+import Privacy from './pages/Privacy';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/demo" element={<Demo />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
             </Routes>
           </main>
           
@@ -49,6 +51,7 @@ function App() {
                   <ul className="space-y-2 text-sm text-gray-400">
                     <li><a href="/demo" className="hover:text-white transition-colors">Book Demo</a></li>
                     <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
+                    <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
                     <li><a href="#" className="hover:text-white transition-colors">Support</a></li>
                   </ul>
                 </div>
