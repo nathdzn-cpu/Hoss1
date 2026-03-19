@@ -69,9 +69,9 @@ const Pricing: React.FC = () => {
         <div className="absolute inset-0 bg-grid-pattern opacity-40"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3 bg-gradient-to-tr from-amber-500/20 to-orange-500/20 dark:from-amber-500/10 dark:to-orange-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6">
-            Simple, Transparent Pricing
-          </h1>
+        <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+        Simple, Transparent Pricing
+        </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             One powerful plan that scales with your business. No tiers, no hidden fees, no feature gates. Just everything you need to succeed.
           </p>

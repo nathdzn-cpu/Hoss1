@@ -280,9 +280,9 @@ const Features: React.FC = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent mb-6">
-            An End-to-End Logistics Platform
-          </h1>
+        <h1 className="text-4xl sm:text-5xl font-bold text-amber-600 dark:text-amber-500 mb-6">
+        An End-to-End Logistics Platform
+        </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             HOSS is more than just software; it's a complete solution designed to streamline every aspect of your logistics operations, from first mile to final invoice.
           </p>

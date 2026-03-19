@@ -147,9 +147,9 @@ const Demo: React.FC = () => {
       <section className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent mb-6">
-              Schedule a Demo
-            </h1>
+          <h1 className="text-5xl font-bold text-amber-600 dark:text-amber-500 mb-6">
+          Schedule a Demo
+          </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Experience HOSS firsthand with a personalized demonstration. Our team will show you 
               exactly how our platform can transform your logistics operations.
