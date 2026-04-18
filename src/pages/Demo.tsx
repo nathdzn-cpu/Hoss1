@@ -11,7 +11,7 @@ interface FormData {
   email: string;
   phone: string;
   company: string;
-  industry: string;
+
   fleetSize: string;
   challenges: string;
   preferredDate: string;
@@ -26,7 +26,7 @@ const emptyForm: FormData = {
   email: '',
   phone: '',
   company: '',
-  industry: '',
+
   fleetSize: '',
   challenges: '',
   preferredDate: '',
@@ -49,7 +49,6 @@ const Demo: React.FC = () => {
     else if (!EMAIL_REGEX.test(formData.email)) newErrors.email = 'Email is invalid';
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
     if (!formData.company.trim()) newErrors.company = 'Company name is required';
-    if (!formData.industry) newErrors.industry = 'Industry is required';
     if (!formData.fleetSize) newErrors.fleetSize = 'Fleet size is required';
 
     setErrors(newErrors);
@@ -177,31 +176,16 @@ const Demo: React.FC = () => {
                   {errors.company && <p id="err-company" className="mt-1 text-sm text-red-600">{errors.company}</p>}
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="demo-industry" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Industry *</label>
-                    <select id="demo-industry" name="industry" value={formData.industry} onChange={handleChange} disabled={isSubmitting} aria-invalid={!!errors.industry} aria-describedby={errors.industry ? 'err-industry' : undefined} className={inputCls(errors.industry)}>
-                      <option value="">Select Industry</option>
-                      <option value="logistics">Logistics & Transportation</option>
-                      <option value="manufacturing">Manufacturing</option>
-                      <option value="retail">Retail & E-commerce</option>
-                      <option value="construction">Construction</option>
-                      <option value="agriculture">Agriculture</option>
-                      <option value="other">Other</option>
-                    </select>
-                    {errors.industry && <p id="err-industry" className="mt-1 text-sm text-red-600">{errors.industry}</p>}
-                  </div>
-                  <div>
-                    <label htmlFor="demo-fleetSize" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Fleet Size *</label>
-                    <select id="demo-fleetSize" name="fleetSize" value={formData.fleetSize} onChange={handleChange} disabled={isSubmitting} aria-invalid={!!errors.fleetSize} aria-describedby={errors.fleetSize ? 'err-fleetSize' : undefined} className={inputCls(errors.fleetSize)}>
-                      <option value="">Select Fleet Size</option>
-                      <option value="1-5">1-5 vehicles</option>
-                      <option value="6-20">6-20 vehicles</option>
-                      <option value="21-50">21-50 vehicles</option>
-                      <option value="50+">50+ vehicles</option>
-                    </select>
-                    {errors.fleetSize && <p id="err-fleetSize" className="mt-1 text-sm text-red-600">{errors.fleetSize}</p>}
-                  </div>
+                <div>
+                  <label htmlFor="demo-fleetSize" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Fleet Size *</label>
+                  <select id="demo-fleetSize" name="fleetSize" value={formData.fleetSize} onChange={handleChange} disabled={isSubmitting} aria-invalid={!!errors.fleetSize} aria-describedby={errors.fleetSize ? 'err-fleetSize' : undefined} className={inputCls(errors.fleetSize)}>
+                    <option value="">Select Fleet Size</option>
+                    <option value="1-5">1-5 vehicles</option>
+                    <option value="6-20">6-20 vehicles</option>
+                    <option value="21-50">21-50 vehicles</option>
+                    <option value="50+">50+ vehicles</option>
+                  </select>
+                  {errors.fleetSize && <p id="err-fleetSize" className="mt-1 text-sm text-red-600">{errors.fleetSize}</p>}
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
