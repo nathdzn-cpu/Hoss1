@@ -14,8 +14,10 @@ import {
 } from 'lucide-react';
 import Button from '../components/Button';
 import { Link } from 'react-router-dom';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 
 const AnimatedMap = () => {
+  const prefersReducedMotion = useReducedMotion();
   const trucks = [
     { id: 'HOSS-07', driver: 'Sarah J.', status: 'On Time', path: 'M 50 200 Q 150 150 250 200 T 450 200', duration: '10s', color: 'text-amber-600' },
     { id: 'HOSS-11', driver: 'Mike P.', status: 'In Transit', path: 'M 80 70 Q 180 120 280 70 T 480 70', duration: '12s', color: 'text-green-600' },
@@ -49,9 +51,11 @@ const AnimatedMap = () => {
           {/* Moving Trucks with Tooltips */}
           {trucks.map((truck, index) => (
             <g key={truck.id} className="group">
-              <animateMotion dur={truck.duration} repeatCount="indefinite" rotate="auto">
-                <mpath xlinkHref={`#route${index + 1}`} />
-              </animateMotion>
+              {!prefersReducedMotion && (
+                <animateMotion dur={truck.duration} repeatCount="indefinite" rotate="auto">
+                  <mpath xlinkHref={`#route${index + 1}`} />
+                </animateMotion>
+              )}
               
               {/* Truck Icon */}
               <foreignObject x="-12" y="-12" width="24" height="24" className="overflow-visible">

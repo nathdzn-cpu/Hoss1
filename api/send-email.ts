@@ -1,54 +1,90 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
 
-// Helper to format form data into a readable string for the email body
-function formatObjectForEmail(data: Record<string, any>): string {
-  // Remove formType from the email body and format the rest
-  const { formType, ...rest } = data;
+type FormValue = string | number | boolean | undefined | null;
+type FormData = Record<string, FormValue>;
+
+// Strip CR/LF to prevent email header injection and normalise whitespace.
+function sanitize(input: FormValue): string {
+  if (input === undefined || input === null) return '';
+  return String(input).replace(/[\r\n]+/g, ' ').trim();
+}
+
+function formatObjectForEmail(data: FormData): string {
+  const { formType: _formType, ...rest } = data;
   return Object.entries(rest)
-    .map(([key, value]) => `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value || 'N/A'}`)
+    .map(([key, value]) => {
+      const label = key.charAt(0).toUpperCase() + key.slice(1);
+      return `${label}: ${sanitize(value) || 'N/A'}`;
+    })
     .join('\n');
 }
 
+function getAllowedOrigins(): string[] {
+  return (process.env.ALLOWED_ORIGINS || '')
+    .split(',')
+    .map((o) => o.trim())
+    .filter(Boolean);
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  const origin = (req.headers.origin as string) || '';
+  const allowedOrigins = getAllowedOrigins();
+  const isAllowedOrigin = allowedOrigins.length === 0 || allowedOrigins.includes(origin);
+
+  if (isAllowedOrigin && origin) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  }
+
+  if (req.method === 'OPTIONS') {
+    return res.status(isAllowedOrigin ? 204 : 403).end();
+  }
+
   if (req.method !== 'POST') {
     res.setHeader('Allow', ['POST']);
     return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 
-  const { formType, ...formData } = req.body;
+  if (!isAllowedOrigin) {
+    return res.status(403).json({ success: false, error: 'Origin not allowed' });
+  }
+
+  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD } = process.env;
+  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASSWORD) {
+    console.error('SMTP configuration missing');
+    return res.status(500).json({ success: false, error: 'Email service not configured' });
+  }
+
+  const { formType, ...formData } = (req.body ?? {}) as FormData & { formType?: string };
 
   try {
-    // 1. Configure Nodemailer transport from environment variables
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || "465"),
-      secure: true, // true for 465, false for other ports
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
-      },
+      host: SMTP_HOST,
+      port: parseInt(SMTP_PORT || '465', 10),
+      secure: true,
+      auth: { user: SMTP_USER, pass: SMTP_PASSWORD },
     });
 
     let subject = '';
     let text = '';
 
-    // 2. Handle different form types
     if (formType === 'contact') {
-      const { subject: formSubject } = formData;
+      const formSubject = sanitize(formData.subject);
       subject = `New Contact Form Submission: ${formSubject || 'General Inquiry'}`;
       text = `You have a new message from your website's contact form.\n\n---\n\n${formatObjectForEmail(formData)}`;
     } else if (formType === 'demo') {
-      const { company } = formData;
-      subject = `New Demo Request from ${company}`;
+      const company = sanitize(formData.company);
+      subject = `New Demo Request from ${company || 'Unknown Company'}`;
       text = `You have a new demo request.\n\n---\n\n${formatObjectForEmail(formData)}`;
     } else {
-      return res.status(400).json({ success: false, error: "Invalid or missing formType in request body" });
+      return res.status(400).json({ success: false, error: 'Invalid or missing formType in request body' });
     }
 
-    // 3. Send the email
     await transporter.sendMail({
-      from: `"HOSS Website" <${process.env.SMTP_USER}>`,
+      from: `"HOSS Website" <${SMTP_USER}>`,
       to: 'info@thehoss.co.uk',
       subject,
       text,
@@ -57,7 +93,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error('Nodemailer Error:', error);
-    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
-    return res.status(500).json({ success: false, error: errorMessage });
+    return res.status(500).json({ success: false, error: 'Failed to send email' });
   }
 }
