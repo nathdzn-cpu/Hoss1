@@ -3,6 +3,7 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import { ToastProvider } from './contexts/ToastContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import Navigation from './components/Navigation';
+import CookieConsent from './components/CookieConsent';
 import Home from './pages/Home';
 import Features from './pages/Features';
 import Pricing from './pages/Pricing';
@@ -10,6 +11,7 @@ import Demo from './pages/Demo';
 import Contact from './pages/Contact';
 import OurSolution from './pages/OurSolution';
 import Privacy from './pages/Privacy';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -34,9 +36,12 @@ function App() {
               <Route path="/demo" element={<Demo />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           
+          <CookieConsent />
+
           {/* Footer */}
           <footer className="bg-gray-900 dark:bg-black text-white py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,8 +78,16 @@ function App() {
                   </ul>
                 </div>
               </div>
-              <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-400">
-                <p>&copy; 2026 HOSS - Haulage One Stop Solutions. All rights reserved.</p>
+              <div className="border-t border-gray-800 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <p className="text-sm text-gray-400 order-2 sm:order-1">&copy; 2026 HOSS - Haulage One Stop Solution Ltd. Company No. 16774658. All rights reserved.</p>
+                <div className="flex items-center gap-3 order-1 sm:order-2">
+                  <a href="https://apps.apple.com/gb/app/hoss/id6760239877" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
+                    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+                  </a>
+                  <a href="https://play.google.com/store/apps/details?id=uk.co.thehoss.hoss&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-[42px] w-auto -my-[5px] opacity-80 hover:opacity-100 transition-opacity" />
+                  </a>
+                </div>
               </div>
             </div>
           </footer>

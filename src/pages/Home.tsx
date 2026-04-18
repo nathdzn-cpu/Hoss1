@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import { Truck, MapPin, FileText, CreditCard, BarChart3, CheckCircle, ArrowRight, AlertTriangle, Warehouse, CheckSquare, User, Users, Building, LayoutDashboard, Smartphone, Clock, Wrench, Star, ArrowUp } from 'lucide-react';
+import AppStoreBadges from '../components/AppStoreBadges';
+import AppShowcase from '../components/AppShowcase';
+import LiveDemo from './LiveDemo';
 import { useAnimatedCounter } from '../hooks/useAnimatedCounter';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 
@@ -670,6 +673,9 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <LiveDemo />
+      <AppShowcase />
 
       {/* Final CTA */}
       <section className="bg-white dark:bg-slate-900 py-20">

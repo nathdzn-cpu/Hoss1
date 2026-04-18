@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Sliders, Smartphone, Users, GanttChartSquare, Zap, FileClock, MessageSquare, BarChart } from 'lucide-react';
 import Button from '../components/Button';
 import Card from '../components/Card';
+import AppStoreBadges from '../components/AppStoreBadges';
+import AppShowcase from '../components/AppShowcase';
+import LiveDemo from './LiveDemo';
 
 const OurSolution: React.FC = () => {
 
@@ -151,9 +154,13 @@ const OurSolution: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 leading-snug">
         One Platform for Your Whole Operation
         </h1>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10">
             HOSS connects every part of your business, from the driver on the road to the client at their desk, in one place.
           </p>
+          <div>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Available on iOS & Android</p>
+            <AppStoreBadges />
+          </div>
         </div>
       </section>
 
@@ -217,6 +224,9 @@ const OurSolution: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <LiveDemo />
+      <AppShowcase />
 
       {/* CTA Section */}
       <section className="bg-gray-50 dark:bg-slate-800 py-20">
