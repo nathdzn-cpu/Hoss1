@@ -9,16 +9,20 @@ const Pricing: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const includedFeatures = [
-    'Live GPS Tracking & Mapping',
+    'Live GPS & HGV Navigation',
     'Automated Quoting & Invoicing',
     'Multi-Stop Bookings',
-    'Digital POD & Document Capture',
-    'Vehicle Maintenance Alerts',
-    'Accounting Software Integrations',
-    'Mobile App for Drivers',
+    'AI-Powered POD Capture',
+    'Xero Accounting Integration',
+    'Digital Daily Vehicle Checks',
+    'Mobile App for Drivers (iOS & Android)',
     'Advanced Analytics & Reporting',
-    '24/7 Priority Support',
-    'Branded Customer Portals',
+    'Branded Customer Portal',
+    'Offline Mode for Drivers',
+    'Recurring Jobs & Job Cloning',
+    'Load & Freight Planning',
+    'Subcontractor Management',
+    'Expense Logging',
     'Unlimited Jobs & Users',
     'Secure Cloud Storage',
   ];
@@ -73,7 +77,7 @@ const Pricing: React.FC = () => {
         Simple, Transparent Pricing
         </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            One powerful plan that scales with your business. No tiers, no hidden fees, no feature gates. Just everything you need to succeed.
+            One plan, every feature included. No tiers, no hidden fees, no per-feature charges.
           </p>
         </div>
       </section>
@@ -95,10 +99,10 @@ const Pricing: React.FC = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-              The All-in-One Plan
+              Everything That's Included
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              Every HOSS subscription comes fully loaded with all the features you need to run and scale your business.
+              Every HOSS subscription includes the full feature set from day one.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

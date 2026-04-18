@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
         throw new Error(errorData.error || 'An unexpected error occurred.');
       }
 
-      showToast("Message sent — we'll reply within 24 hours.", 'success');
+      showToast("Message sent. We'll reply within 24 hours.", 'success');
       setFormData(emptyForm);
     } catch (error) {
       console.error('Error sending contact message:', error);
@@ -90,8 +90,7 @@ const Contact: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold text-amber-600 dark:text-amber-500 mb-6">Contact Us</h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Ready to transform your logistics operations? Our team is here to help. Contact us for
-            support, sales inquiries, or general questions.
+            Got a question or want to discuss HOSS for your business? Get in touch and we'll get back to you.
           </p>
         </div>
       </section>

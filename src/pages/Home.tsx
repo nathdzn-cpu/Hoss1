@@ -43,7 +43,7 @@ const expertFeatures = [
   'Works from any Device',
   'Customer Management',
   'Live Tracking',
-  'Automated Intelligent Address Lookup',
+  'Address Lookup & Verification',
   'Servicing & MOT Monitoring',
 ];
 
@@ -51,17 +51,17 @@ const whoWeHelp = [
   {
     icon: User,
     title: 'Owner Drivers',
-    description: 'Manage your single vehicle with enterprise-level tools. Find loads, plan routes, and handle invoicing effortlessly.',
+    description: 'Manage your jobs, track mileage, capture PODs, and send invoices, all from your phone.',
   },
   {
     icon: Users,
     title: 'Fleet Managers',
-    description: 'Oversee your entire fleet with a real-time dashboard. Optimize dispatch, track performance, and reduce operational costs.',
+    description: 'Keep track of your whole fleet from one dashboard. Assign jobs, monitor progress, and stay on top of driver activity in real time.',
   },
   {
     icon: Building,
-    title: 'Enterprise Logistics',
-    description: 'Integrate HOSS into your large-scale operations for complete visibility and control over your supply chain.',
+    title: 'Larger Operations',
+    description: 'Give your office team a proper system for managing jobs, customers, and invoicing without cobbling together spreadsheets and emails.',
   },
 ];
 
@@ -348,10 +348,10 @@ const Home: React.FC = () => {
           {/* Top Content */}
           <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white mb-6 leading-snug">
-          The All-in-One Solution for Modern Logistics.
+          The Haulage Management Platform That Gets Out of Your Way.
           </h1>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
-              HOSS integrates everything from organising the workflow of job progression to straight forward invoicing and much more between.
+              HOSS handles job dispatching, driver tracking, invoicing, and everything in between.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <Link to="/demo">
@@ -553,9 +553,9 @@ const Home: React.FC = () => {
       <section className="py-24 bg-white dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">The HOSS Advantage</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">How HOSS Works</h2>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              Discover the core benefits that make HOSS the preferred platform for modern logistics companies.
+              A closer look at the parts of HOSS your team will actually use every day.
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
@@ -615,10 +615,10 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16 lg:mb-20">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6 leading-snug">
-                The haulage platform built by <span className="text-amber-600 dark:text-amber-500">haulage experts</span>, for haulage professionals.
+                Built by people who know <span className="text-amber-600 dark:text-amber-500">haulage</span>.
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                HOSS is engineered by professionals who live and breathe haulage. With decades of industry experience, our team knows what it takes to run a thriving haulage company, and we've built HOSS to help you run yours.
+                HOSS was built by people with direct experience in the industry. We know what it's like to manage drivers, chase PODs, and deal with the daily grind of running a haulage operation. We built a system that actually fits the way the job works.
               </p>
             </div>
             <div className="flex justify-center items-center">
@@ -649,9 +649,9 @@ const Home: React.FC = () => {
       <section className="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">A Solution for Every Scale of Operation</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">Built for Every Size of Operation</h2>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              Whether you're a solo operator or a national enterprise, HOSS provides the tools you need to succeed and scale.
+              From single-vehicle owner-drivers to larger fleets, HOSS works for the operation you have now and grows with you.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -679,10 +679,10 @@ const Home: React.FC = () => {
             <div className="absolute -bottom-16 -left-10 w-48 h-48 bg-white/10 rounded-full"></div>
             <div className="relative">
               <h3 className="text-3xl font-bold mb-4">
-                Ready to Transform Your Business?
+                See HOSS in Action
               </h3>
               <p className="text-lg text-amber-100 mb-8 max-w-3xl mx-auto">
-                Let us show you how HOSS can streamline your operations from day one! Sign up for a free, personalized demo with our team today.
+                Book a demo and we'll walk you through how HOSS works for your type of operation.
               </p>
               <Link to="/demo">
                 <Button size="lg" className="bg-white text-amber-700 hover:bg-slate-100 font-bold shadow-lg transform hover:scale-105">

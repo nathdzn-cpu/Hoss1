@@ -97,18 +97,18 @@ const Demo: React.FC = () => {
   };
 
   const demoFeatures = [
-    { icon: Users, title: 'Personalized Demo', description: 'Face-to-face demonstration tailored to your specific business needs.' },
-    { icon: Clock, title: 'Flexible Scheduling', description: 'Choose a time and location that works best for your team.' },
-    { icon: MapPin, title: 'On-Site or Remote', description: 'Meet at your office or join us remotely via video conference.' },
+    { icon: Users, title: 'Live Walkthrough', description: 'A live demo focused on your specific setup and the parts of HOSS most relevant to you.' },
+    { icon: Clock, title: 'Pick a Time That Works', description: 'Choose a time that suits you: morning, afternoon, or evening.' },
+    { icon: MapPin, title: 'On-Site or Remote', description: 'Meet at your office or join us via video call, whichever is easier.' },
   ];
 
   const benefits = [
-    'See HOSS in action with real data scenarios',
-    'Understand ROI and cost savings potential',
-    'Get answers to your specific questions',
-    'Receive a custom implementation roadmap',
-    'Meet our technical and support teams',
-    'Discuss integration requirements',
+    'See HOSS working with real job scenarios',
+    'Ask any questions about how it fits your operation',
+    'Walk through onboarding and what getting set up looks like',
+    'Discuss any integration requirements',
+    'Get a clear picture of pricing for your team size',
+    'No sales pressure, just a straight look at the product',
   ];
 
   const baseInput = 'w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 dark:bg-gray-800 dark:text-gray-100 disabled:opacity-60 disabled:cursor-not-allowed';
@@ -121,7 +121,7 @@ const Demo: React.FC = () => {
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold text-amber-600 dark:text-amber-500 mb-6">Schedule a Demo</h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Experience HOSS firsthand with a personalized demonstration. Our team will show you exactly how our platform can transform your logistics operations.
+              See HOSS with a live walkthrough built around your operation. We'll answer your questions and show you exactly how it works in practice.
             </p>
           </div>
 

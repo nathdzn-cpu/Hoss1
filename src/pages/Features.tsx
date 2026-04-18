@@ -8,9 +8,13 @@ import {
   ArrowRight,
   Truck,
   Route,
-  Navigation,
   ShieldCheck,
   LayoutTemplate,
+  WifiOff,
+  RefreshCw,
+  Package,
+  BookOpen,
+  ScanLine,
 } from 'lucide-react';
 import Button from '../components/Button';
 import { Link } from 'react-router-dom';
@@ -205,19 +209,19 @@ const highlightedFeatures = [
   {
     icon: MapPin,
     title: 'Live GPS Tracking & Mapping',
-    description: 'Gain complete operational oversight with our real-time GPS tracking. HOSS integrates a state-of-the-art mapping system to help you plan routes, monitor vehicle progress, and provide customers with accurate ETAs. Reduce idle time, improve fuel efficiency, and enhance driver safety with a live, interactive fleet map.',
+    description: 'Gain complete operational oversight with real-time GPS tracking. HOSS integrates TomTom mapping to help you plan HGV routes, monitor vehicle progress, and provide customers with accurate ETAs. One tap from the driver app launches turn-by-turn HGV navigation with routing built for trucks, not cars.',
     visual: AnimatedMap,
   },
   {
     icon: CreditCard,
-    title: 'Automated Billing & Payments',
-    description: 'Accelerate your cash flow and eliminate administrative headaches. Once a job is marked complete, HOSS automatically generates professional customer invoices and driver self-bills. Track payment statuses in real-time and integrate with popular accounting software to streamline your entire financial workflow.',
+    title: 'Automated Billing & Xero Integration',
+    description: 'Once a job is marked complete, HOSS generates the invoice automatically and it is ready to send. Export to Xero individually or in batch, with POD images attached. No manual steps.',
     visual: AnimatedInvoice,
   },
   {
     icon: BarChart3,
     title: 'Driver & Fleet Analytics',
-    description: 'Make data-driven decisions with powerful insights. HOSS allows employers to view driver stats and analytics of their daily, weekly & monthly revenue, mileage, fuel efficiency and more.',
+    description: 'View driver and fleet performance across daily, weekly, and monthly periods. Revenue, mileage, job counts, and on-time rates give you a clear picture of how the business is actually running.',
     visual: () => (
       <div className="relative w-full h-full p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-700 group">
         <div className="w-full h-full bg-white dark:bg-slate-800 rounded-lg p-4 shadow-inner flex flex-col space-y-4">
@@ -230,12 +234,12 @@ const highlightedFeatures = [
           </div>
           <div className="grid grid-cols-2 gap-2 text-center">
             <div className="p-2 bg-slate-100 dark:bg-slate-900/50 rounded-md">
-              <p className="text-xs text-slate-500 dark:text-slate-400">Avg. Fuel Efficiency</p>
-              <p className="font-bold text-lg text-green-500">8.2 MPG</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Jobs This Month</p>
+              <p className="font-bold text-lg text-green-500">48</p>
             </div>
             <div className="p-2 bg-slate-100 dark:bg-slate-900/50 rounded-md">
               <p className="text-xs text-slate-500 dark:text-slate-400">Monthly Revenue</p>
-              <p className="font-bold text-lg text-amber-500">£8,120</p>
+              <p className="font-bold text-lg text-amber-500">£27,040</p>
             </div>
           </div>
         </div>
@@ -249,32 +253,47 @@ const otherFeatures = [
   {
     icon: Route,
     title: 'Multi-Stop Bookings',
-    description: 'Easily manage complex jobs with multi-stop collection and delivery capabilities, whether booked via our app or CX.',
+    description: 'Manage complex jobs with multi-stop collection and delivery in a single booking, with per-stop driver assignment and POD requirements.',
   },
   {
-    icon: FileSignature,
-    title: 'Digital POD & Document Capture',
-    description: 'Go paperless. Manage PODs and other crucial documents in a secure, easy-to-use digital format.',
+    icon: ScanLine,
+    title: 'AI-Powered POD Capture',
+    description: 'Documents are auto-scanned and perspective-corrected on upload. An AI check verifies legibility, signature, and recipient name before the driver submits.',
   },
   {
-    icon: Navigation,
-    title: 'Intelligent Address Lookup',
-    description: 'Save time and reduce errors with our integrated address search engine that quickly finds and verifies locations.',
+    icon: BookOpen,
+    title: 'Xero Integration',
+    description: 'Export invoices directly to Xero, individually or in batch, with all POD images attached automatically. No double-entry.',
   },
   {
     icon: ShieldCheck,
-    title: 'Vehicle Maintenance Alerts',
-    description: 'Stay ahead of maintenance with automated reminders for your entire fleet, ensuring compliance and safety.',
+    title: 'Digital Daily Checks',
+    description: 'Configurable pre-drive vehicle inspection forms with photo evidence for defects. Drivers complete their check on the app before starting. Fully digital and auditable.',
   },
   {
     icon: LayoutTemplate,
-    title: 'Branded Customer Portals',
-    description: 'Deliver a professional, white-labelled experience with customer portals fully branded to your company.',
+    title: 'Branded Customer Portal',
+    description: 'Your clients get their own portal to submit quote requests, book jobs, track shipments live, and download invoices and PODs. All under your brand.',
   },
   {
     icon: Smartphone,
-    title: 'Mobile App',
-    description: 'Enables drivers to use our easy to use mobile app for job updates, photo capture, and digital signatures and more!',
+    title: 'Mobile App (iOS & Android)',
+    description: 'Drivers get a dedicated app for job updates, photo capture, digital signatures, HGV navigation, and expense logging. Works offline too.',
+  },
+  {
+    icon: WifiOff,
+    title: 'Offline Mode',
+    description: 'Drivers in low-signal areas can still update job statuses, upload PODs, and capture signatures. Everything queues locally and syncs automatically when signal returns.',
+  },
+  {
+    icon: RefreshCw,
+    title: 'Recurring Jobs & Cloning',
+    description: 'Schedule jobs to repeat on a set frequency, or clone any existing job in one click. Saves time on regular runs and repeat customers.',
+  },
+  {
+    icon: Package,
+    title: 'Load & Freight Planning',
+    description: 'Record pallet counts, total weight, dimensions, temperature requirements, and hazardous goods flags on every job. All visible to drivers and office staff.',
   },
 ];
 
@@ -285,10 +304,10 @@ const Features: React.FC = () => {
       <section className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-4xl sm:text-5xl font-bold text-amber-600 dark:text-amber-500 mb-6">
-        An End-to-End Logistics Platform
+        Everything in One Place
         </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            HOSS is more than just software; it's a complete solution designed to streamline every aspect of your logistics operations, from first mile to final invoice.
+            HOSS covers every part of your operation: job creation and driver tracking through to invoicing, reporting, and customer access.
           </p>
         </div>
       </section>
@@ -298,10 +317,10 @@ const Features: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-              Comprehensive Feature Set
+              What's Included
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              We've packed HOSS with every tool you need to run a modern, efficient, and profitable logistics business.
+              Every HOSS subscription includes the full feature set. No add-ons, no feature tiers.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -354,7 +373,7 @@ const Features: React.FC = () => {
             Ready to See It in Action?
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-8">
-            Book a free, no-obligation demo with one of our logistics experts to see how these features can transform your business.
+            Book a demo and we'll walk you through how these features work in practice.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/demo">

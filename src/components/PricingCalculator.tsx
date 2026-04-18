@@ -172,7 +172,7 @@ const PricingCalculator: React.FC = () => {
         </div>
         
         <p className="text-xs text-slate-500 mt-6">
-          Please note: Prices shown are a rough guide. Bulk enquiries may qualify for discounted rates — contact us for a tailored quote.
+          Please note: Prices shown are a rough guide. Bulk enquiries may qualify for discounted rates. Contact us for a custom quote.
         </p>
 
         <Link to="/demo" className="block mt-6">

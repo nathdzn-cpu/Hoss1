@@ -44,7 +44,7 @@ function App() {
                 <div className="col-span-2 md:col-span-1 text-center md:text-left">
                   <h3 className="text-lg font-semibold mb-4">HOSS</h3>
                   <p className="text-gray-400 text-sm">
-                    Transforming logistics operations with comprehensive customer portal solutions.
+                    Job management, driver tracking, and invoicing for haulage companies.
                   </p>
                 </div>
                 <div className="text-center sm:text-left">

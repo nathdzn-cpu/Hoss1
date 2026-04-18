@@ -49,8 +49,8 @@ const Privacy: React.FC = () => {
 
   const serviceProviders = [
     { name: 'Supabase', purpose: 'Data Storage', icon: Database },
-    { name: 'Stripe', purpose: 'Payment Processing', icon: CreditCard },
-    { name: 'TomTom', purpose: 'Mapping Services', icon: MapPin },
+    { name: 'TomTom', purpose: 'Mapping & Navigation', icon: MapPin },
+    { name: 'Xero', purpose: 'Accounting Integration', icon: CreditCard },
   ];
 
   const colorClasses = {
@@ -266,7 +266,7 @@ const Privacy: React.FC = () => {
                     Your Organisation
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    Your employer or the company that manages your account can see data related to their operations. This ensures seamless coordination and operational efficiency.
+                    Your employer or the company that manages your account can see data related to their operations. This is necessary for the platform to function. Drivers' job activity is visible to the organisation that assigned those jobs.
                   </p>
                 </div>
               </div>
