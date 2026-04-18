@@ -49,6 +49,7 @@ const Privacy: React.FC = () => {
 
   const serviceProviders = [
     { name: 'Supabase', purpose: 'Data Storage', icon: Database },
+    { name: 'Stripe', purpose: 'Payment Processing', icon: CreditCard },
     { name: 'TomTom', purpose: 'Mapping & Navigation', icon: MapPin },
     { name: 'Xero', purpose: 'Accounting Integration', icon: CreditCard },
   ];
@@ -291,7 +292,7 @@ const Privacy: React.FC = () => {
           </div>
 
           {/* Service Provider Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
             {serviceProviders.map((provider, index) => (
               <div 
                 key={index}
