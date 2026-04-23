@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Sliders, Smartphone, Users, GanttChartSquare, Zap, FileClock, MessageSquare, BarChart } from 'lucide-react';
 import Button from '../components/Button';
 import Card from '../components/Card';
+import SEOHead from '../components/SEOHead';
 import AppStoreBadges from '../components/AppStoreBadges';
 import AppShowcase from '../components/AppShowcase';
 import LiveDemo from './LiveDemo';
@@ -146,6 +147,11 @@ const OurSolution: React.FC = () => {
 
   return (
     <div className="pt-20 md:pt-16">
+      <SEOHead
+        title="Our Solution | How HOSS Works for Haulage Businesses"
+        description="HOSS connects your office, drivers, and customers in one place. Live job tracking, a driver mobile app, a branded customer portal, and back-office tools for UK haulage."
+        path="/our-solution"
+      />
       {/* Hero Section */}
       <section className="relative bg-white dark:bg-gray-900 py-20 sm:py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-50"></div>

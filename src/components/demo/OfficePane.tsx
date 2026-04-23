@@ -260,14 +260,14 @@ function OfficeJobDetail() {
           <div style={{ background: '#fff', borderRadius: 12, border: `1px solid ${H.border}`, overflow: 'hidden', marginBottom: 12 }}>
             <div style={{ padding: '12px 16px', borderBottom: `1px solid ${H.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontFamily: dm }}>
               <span style={{ fontSize: 13, fontWeight: 700, color: H.ink, fontFamily: sora }}>Proof of Delivery</span>
-              <span style={{ fontSize: 10, color: H.mute }}>14:22 — auto-synced</span>
+              <span style={{ fontSize: 10, color: H.mute }}>14:22 · auto-synced</span>
             </div>
             <div style={{ padding: 14, display: 'flex', alignItems: 'center', gap: 12, fontFamily: dm }}>
               <div style={{ width: 48, height: 56, borderRadius: 6, background: '#F8FAFC', border: `1px solid ${H.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <svg viewBox="0 0 24 24" width="20" height="20"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="#9CA3AF" strokeWidth="1.5"/><polyline points="14 2 14 8 20 8" fill="none" stroke="#9CA3AF" strokeWidth="1.5"/></svg>
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 13, fontWeight: 600, color: H.ink }}>POD — {job.id}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: H.ink }}>POD: {job.id}</div>
                 <div style={{ fontSize: 11, color: H.mute }}>Signed by S. Ahmed · Reed Depot</div>
               </div>
               <div style={{ width: 28, height: 28, borderRadius: 999, background: H.green100, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

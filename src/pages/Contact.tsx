@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import SEOHead from '../components/SEOHead';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import { useToast } from '../contexts/ToastContext';
@@ -86,6 +87,11 @@ const Contact: React.FC = () => {
 
   return (
     <div className="pt-20 md:pt-16">
+      <SEOHead
+        title="Contact HOSS | Get in Touch"
+        description="Got a question about HOSS? Contact our team by phone, email, or the form below. Based in London, working with haulage operators across the UK."
+        path="/contact"
+      />
       <section className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 py-20 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold text-amber-600 dark:text-amber-500 mb-6">Contact Us</h1>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
-import { Truck, MapPin, FileText, CreditCard, BarChart3, CheckCircle, ArrowRight, AlertTriangle, Warehouse, CheckSquare, User, Users, Building, LayoutDashboard, Smartphone, Clock, Wrench, Star, ArrowUp } from 'lucide-react';
+import SEOHead from '../components/SEOHead';
+import { Truck, MapPin, FileText, CreditCard, BarChart3, CheckCircle, ArrowRight, AlertTriangle, Warehouse, CheckSquare, User, Users, Building, LayoutDashboard, Smartphone, Clock, Wrench, Star, ArrowUp, PlusCircle, MinusCircle } from 'lucide-react';
 import AppStoreBadges from '../components/AppStoreBadges';
 import AppShowcase from '../components/AppShowcase';
 import LiveDemo from './LiveDemo';
@@ -311,9 +312,105 @@ const DashboardSidebar = () => {
   );
 };
 
+const homeFaqData = [
+  {
+    question: 'What is haulage management software?',
+    answer: "It's software built specifically for haulage and transport businesses. It replaces the mix of spreadsheets, phone calls, and WhatsApp groups most operators rely on, with one system for creating jobs, dispatching drivers, tracking deliveries, and sending invoices. HOSS is built for UK haulage operators specifically.",
+  },
+  {
+    question: 'How is HOSS different from using spreadsheets?',
+    answer: "Spreadsheets don't update in real time, can't notify drivers of new jobs, and require someone to chase down PODs and ETAs manually. With HOSS, drivers get their jobs on their phone, update statuses with a single tap, and capture PODs on-site. Your office sees everything live, without needing to pick up the phone.",
+  },
+  {
+    question: 'Is HOSS suitable for owner-operators and small fleets?',
+    answer: "Yes. Whether you're running one vehicle or fifty, HOSS works for your size of operation. Owner-drivers use it to manage their own jobs, capture PODs, and send invoices straight from their phone. You only pay for the users you have.",
+  },
+  {
+    question: 'What is a transport management system (TMS)?',
+    answer: 'A TMS is software that manages the day-to-day of running a transport operation: jobs, drivers, routes, documents, and billing. HOSS is a TMS built specifically for UK haulage companies, with features like HGV routing, driver daily checks, and Xero integration.',
+  },
+  {
+    question: 'How long does it take to get started with HOSS?',
+    answer: "Most operators are up and running within a day. There's no lengthy installation or setup process. You add your drivers, create your first jobs, and the system is ready to go. We're on hand to help if you get stuck.",
+  },
+  {
+    question: 'Do drivers need to be tech-confident to use the app?',
+    answer: "No. The driver app is built to be as simple as possible. Drivers tap to accept a job, tap when they're on route, tap when they arrive, and take a photo for the POD. That's the core of it. Most drivers pick it up without any training.",
+  },
+  {
+    question: 'Does HOSS integrate with Xero?',
+    answer: 'Yes. HOSS integrates with Xero so invoices created in HOSS can be pushed straight to your accounts. It cuts out the manual data entry and keeps your invoicing and accounting in sync.',
+  },
+  {
+    question: 'Can my customers track their own deliveries?',
+    answer: "Yes. Each customer can be given access to a branded portal where they can see the status of their jobs, track deliveries in real time, view PODs, and download invoices, without needing to call or email your office.",
+  },
+];
+
 const Home: React.FC = () => {
   const [activeFeature, setActiveFeature] = useState(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const prefersReducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    const schemas = [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'HOSS - Haulage One Stop Solution Ltd',
+        legalName: 'Haulage One Stop Solution Ltd',
+        url: 'https://thehoss.co.uk',
+        logo: 'https://thehoss.co.uk/logo.png',
+        foundingDate: '2024',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'London',
+          addressCountry: 'GB',
+        },
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '+44-20-3151-2025',
+          contactType: 'customer support',
+          areaServed: 'GB',
+          availableLanguage: 'English',
+        },
+        sameAs: [
+          'https://apps.apple.com/gb/app/hoss/id6760239877',
+          'https://play.google.com/store/apps/details?id=uk.co.thehoss.hoss',
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'HOSS',
+        operatingSystem: 'iOS, Android, Web',
+        applicationCategory: 'BusinessApplication',
+        description: 'Haulage management software for UK transport operators. Job dispatching, driver tracking, digital PODs, invoicing, and a branded customer portal.',
+        url: 'https://thehoss.co.uk',
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'GBP',
+          availability: 'https://schema.org/InStock',
+        },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: homeFaqData.map(({ question, answer }) => ({
+          '@type': 'Question',
+          name: question,
+          acceptedAnswer: { '@type': 'Answer', text: answer },
+        })),
+      },
+    ];
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'schema-home';
+    script.text = JSON.stringify(schemas);
+    document.head.appendChild(script);
+    return () => { document.getElementById('schema-home')?.remove(); };
+  }, []);
 
   const interactiveFeatures = [
     {
@@ -344,6 +441,11 @@ const Home: React.FC = () => {
 
   return (
     <>
+      <SEOHead
+        title="HOSS | Haulage Management Software for UK Operators"
+        description="Job dispatching, driver tracking, digital PODs, and invoicing in one platform. Built for UK haulage companies. Scales from owner-drivers to large fleets."
+        path="/"
+      />
       <div className="relative min-h-screen w-full overflow-hidden bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
         <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-transparent dark:from-gray-900/50 dark:to-transparent z-0"></div>
         
@@ -676,6 +778,42 @@ const Home: React.FC = () => {
 
       <LiveDemo />
       <AppShowcase />
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white dark:bg-slate-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+              Common Questions About HOSS
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              Straight answers to what most people ask before getting started.
+            </p>
+          </div>
+          <div className="space-y-3">
+            {homeFaqData.map((faq, index) => (
+              <div key={index} className="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden bg-white dark:bg-slate-800">
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex justify-between items-center p-6 text-left font-semibold text-gray-900 dark:text-gray-100 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                >
+                  <span>{faq.question}</span>
+                  {openFaq === index ? (
+                    <MinusCircle className="w-5 h-5 text-amber-600 flex-shrink-0 ml-4" />
+                  ) : (
+                    <PlusCircle className="w-5 h-5 text-slate-400 flex-shrink-0 ml-4" />
+                  )}
+                </button>
+                <div className={`transition-all duration-300 ease-in-out ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+                  <div className="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {faq.answer}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Final CTA */}
       <section className="bg-white dark:bg-slate-900 py-20">

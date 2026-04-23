@@ -2,6 +2,7 @@ import React from 'react';
 import { Shield, Database, Users, Globe, MapPin, Camera, Smartphone, FileText, Bell, CreditCard, Building2, Lock, Eye, Server, Mail, ArrowRight, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Card from '../components/Card';
+import SEOHead from '../components/SEOHead';
 
 const Privacy: React.FC = () => {
   const dataCollectItems = [
@@ -64,6 +65,12 @@ const Privacy: React.FC = () => {
 
   return (
     <div className="pt-20 md:pt-16">
+      <SEOHead
+        title="Privacy Policy | HOSS - Haulage One Stop Solution Ltd"
+        description="How HOSS collects, uses, and protects your data. Read the full privacy policy for HOSS - Haulage One Stop Solution Ltd, Company No. 16774658."
+        path="/privacy"
+        noIndex={false}
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-20 sm:py-24 lg:py-32 overflow-hidden">
         {/* Animated Background Elements */}

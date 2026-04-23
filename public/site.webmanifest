@@ -1,0 +1,21 @@
+{
+  "name": "HOSS - Haulage One Stop Solution",
+  "short_name": "HOSS",
+  "description": "Haulage management software for UK transport operators.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#F59E0B",
+  "icons": [
+    {
+      "src": "/logo-o.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-o.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

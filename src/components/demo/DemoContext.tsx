@@ -27,7 +27,7 @@ export interface Step {
 export const STEPS: Step[] = [
   { id: 'welcome',    side: 'both',   title: 'Welcome to HOSS',              desc: 'This interactive demo shows how HOSS connects your office and drivers in real time. Follow the prompts to walk through a complete job.' },
   { id: 'open_create',side: 'office', title: 'Create a new job',             desc: "Click 'New Job' to open the job creation form.", action: 'open_create' },
-  { id: 'fill_form',  side: 'office', title: 'Fill in the job details',      desc: "Edit any fields you like — customer, addresses, weight, pallets, driver. Then click 'Create Job' when ready.", action: 'submit_job' },
+  { id: 'fill_form',  side: 'office', title: 'Fill in the job details',      desc: "Edit any fields you like: customer, addresses, weight, pallets, driver. Then click 'Create Job' when ready.", action: 'submit_job' },
   { id: 'notif',      side: 'driver', title: 'Driver receives notification', desc: 'The assigned driver just got a push notification with the job details you entered.', auto: true, delay: 1500 },
   { id: 'accept',     side: 'driver', title: 'Accept the job',               desc: "The driver reviews the job and taps 'Accept Job'.", action: 'accept' },
   { id: 'accepted',   side: 'office', title: 'Job accepted',                 desc: "The office sees the status update to 'Accepted' in real time.", auto: true, delay: 800 },
@@ -42,7 +42,7 @@ export const STEPS: Step[] = [
   { id: 'pod',        side: 'driver', title: 'Capture POD',                  desc: "Tap 'Upload POD' to capture proof of delivery with photo + signature.", action: 'capture_pod' },
   { id: 'pod_recv',   side: 'office', title: 'POD received',                 desc: 'The POD syncs instantly. No chasing, no spreadsheets.', auto: true, delay: 1000 },
   { id: 'invoice',    side: 'office', title: 'Generate invoice',             desc: 'Click Create Invoice to generate and send to Xero.', action: 'create_invoice' },
-  { id: 'complete',   side: 'both',   title: 'Job complete',                 desc: 'From creation to invoice — one system, zero chasing. That\'s HOSS.', final: true },
+  { id: 'complete',   side: 'both',   title: 'Job complete',                 desc: 'From creation to invoice. One system, zero chasing. That\'s HOSS.', final: true },
 ];
 
 export const DRIVERS: Driver[] = [

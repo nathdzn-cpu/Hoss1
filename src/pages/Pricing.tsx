@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CheckCircle, ArrowRight, Building, PlusCircle, MinusCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import Card from '../components/Card';
+import SEOHead from '../components/SEOHead';
 import PricingCalculator from '../components/PricingCalculator';
 
 const Pricing: React.FC = () => {
@@ -34,7 +35,7 @@ const Pricing: React.FC = () => {
     },
     {
       question: 'How are "Drivers" and "Customers" defined for billing?',
-      answer: 'A "Driver" is any active driver profile in the system that can be assigned to jobs. A "Customer" is a client profile that has access to a portal to track their shipments or manage bookings.'
+      answer: 'A "Driver" is any active driver profile in the system that can be assigned to jobs. A "Customer" is a client profile that has access to a branded portal to track their shipments or manage bookings.'
     },
     {
       question: 'Is the pricing really all-inclusive?',
@@ -44,7 +45,44 @@ const Pricing: React.FC = () => {
       question: 'What if my team size changes?',
       answer: 'Our model is flexible. You can easily adjust the number of users in your account settings at any time. Your billing will be automatically prorated for the current cycle.'
     },
+    {
+      question: 'Is there a free trial?',
+      answer: "Yes. You can try HOSS before committing to a paid plan. No credit card is required to get started. Just sign up and test it with your own team.",
+    },
+    {
+      question: 'Can I cancel at any time?',
+      answer: "Yes. There are no long-term contracts. If HOSS isn't the right fit, you can cancel your subscription at any time without penalty. Your data can be exported before you go.",
+    },
+    {
+      question: 'How much does haulage management software typically cost?',
+      answer: "It varies widely across the market. Some systems charge per vehicle, others add fees per feature or require large upfront setup payments. HOSS uses a straightforward per-user model: one flat price that covers everything. What you see on this page is what you pay, nothing added on later.",
+    },
+    {
+      question: 'Will HOSS save me money compared to what I currently use?',
+      answer: "Most operators tell us they save significant time on admin, chase fewer late payments, and cut down the back-and-forth with drivers and customers. Whether that adds up to a direct financial saving depends on your current setup, but the time saved alone tends to make it worthwhile within the first few weeks.",
+    },
+    {
+      question: 'What support is included?',
+      answer: "Every subscription includes access to our support team. If something isn't working or you're not sure how to set something up, get in touch and we'll help sort it. You're not left to figure it out alone.",
+    },
   ];
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'faq-schema-pricing';
+    script.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqData.map(({ question, answer }) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: answer },
+      })),
+    });
+    document.head.appendChild(script);
+    return () => { document.getElementById('faq-schema-pricing')?.remove(); };
+  }, []);
 
   const particles = Array.from({ length: 15 }).map((_, i) => {
     const size = Math.random() * 10 + 5;
@@ -68,6 +106,11 @@ const Pricing: React.FC = () => {
 
   return (
     <div className="pt-20 md:pt-16">
+      <SEOHead
+        title="Pricing | HOSS Haulage Software - Transparent Per-User Pricing"
+        description="One plan, every feature included. No setup fees, no hidden charges. Calculate your price based on your team size and get started with a free trial."
+        path="/pricing"
+      />
       {/* Hero Section */}
       <section className="relative bg-white dark:bg-gray-900 py-16 sm:py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-40"></div>

@@ -4,6 +4,7 @@ import { ToastProvider } from './contexts/ToastContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import Navigation from './components/Navigation';
 import CookieConsent from './components/CookieConsent';
+import MetaPixelPageView from './components/MetaPixelPageView';
 import Home from './pages/Home';
 import Features from './pages/Features';
 import Pricing from './pages/Pricing';
@@ -25,6 +26,7 @@ function App() {
             >
               Skip to main content
             </a>
+            <MetaPixelPageView />
             <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
               <Navigation />
               <main id="main-content">

@@ -15,7 +15,7 @@ const LiveDemo: React.FC = () => (
         A proper look at the platform your office team will use every day.
       </p>
       <p className="text-sm text-slate-400 dark:text-slate-500 mt-2">
-        This is a rough guide on how HOSS works — the live platform is more in depth.
+        This is a rough guide on how HOSS works. The live platform is more in depth.
       </p>
     </div>
 

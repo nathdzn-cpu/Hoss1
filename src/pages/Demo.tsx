@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, CheckCircle, Clock, Users, MapPin } from 'lucide-react';
+import SEOHead from '../components/SEOHead';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import Modal from '../components/Modal';
@@ -115,6 +116,11 @@ const Demo: React.FC = () => {
 
   return (
     <div className="pt-20 md:pt-16">
+      <SEOHead
+        title="Book a Free Demo | HOSS Haulage Management"
+        description="See HOSS in action. Book a free demo and we will walk you through how HOSS works for your type of haulage operation. No commitment required."
+        path="/demo"
+      />
       <section className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">

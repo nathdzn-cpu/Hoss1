@@ -5,7 +5,7 @@ const screens = [
     label: 'Dashboard',
     tag: 'Live overview',
     src: '/screenshot-dashboard.png',
-    description: 'See your whole operation at a glance. Revenue, active jobs, driver locations and alerts — all on one screen.',
+    description: 'See your whole operation at a glance. Revenue, active jobs, driver locations and alerts, all on one screen.',
   },
   {
     label: 'Jobs',
